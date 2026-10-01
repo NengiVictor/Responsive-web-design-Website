@@ -1,0 +1,127 @@
+/* Palette: graph paper, ink, one blue, one highlighter */
+:root {
+  --paper: #f1f5f6;
+  --tint: #e3ebed;
+  --ink: #14213d;
+  --muted: #4a5a73;
+  --blue: #2b59ff;
+  --hi: #ffd84d;
+  --grid: rgba(20, 33, 61, 0.07);
+  --head: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+
+body {
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+h1, h2, h3, .navbar-brand { font-family: var(--head); color: var(--ink); }
+h2 { font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 0.5rem; }
+h3 { font-weight: 600; font-size: 1.25rem; }
+p { max-width: 62ch; }
+a { color: var(--blue); }
+
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+/* ---------- Navbar ---------- */
+.site-nav { background: var(--paper); border-bottom: 2px solid var(--ink); }
+.site-nav .navbar-brand { font-weight: 800; }
+.site-nav .nav-link { color: var(--ink); font-weight: 600; }
+.site-nav .nav-link:hover, .site-nav .nav-link.active { color: var(--blue); }
+
+/* ---------- Hero (the one memorable element) ---------- */
+.hero {
+  padding: clamp(4rem, 12vw, 9rem) 0 clamp(3rem, 8vw, 6rem);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  border-bottom: 2px solid var(--ink);
+}
+.hero-where { margin-bottom: 0.5rem; color: var(--muted); font-weight: 600; }
+.hero-name {
+  font-weight: 800;
+  font-size: clamp(3rem, 13vw, 9rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.25rem;
+  overflow-wrap: anywhere;
+}
+.hero-line { font-size: 1.35rem; margin-bottom: 2rem; }
+
+.btn { border-radius: 0; font-weight: 600; padding: 0.7rem 1.4rem; margin: 0 0.5rem 0.5rem 0; }
+.btn-ink { background: var(--ink); color: var(--paper); border: 2px solid var(--ink); }
+.btn-ink:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+.btn-line { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+.btn-line:hover { background: var(--hi); color: var(--ink); border-color: var(--ink); }
+
+/* ---------- Sections ---------- */
+.block { padding: clamp(3rem, 8vw, 5.5rem) 0; }
+.block-tint { background: var(--tint); }
+.lead-in { color: var(--muted); margin-bottom: 2rem; }
+
+.portrait { border: 2px solid var(--ink); margin-top: 1rem; max-width: 280px; }
+
+/* ---------- Studies: timeline ---------- */
+.timeline { list-style: none; margin: 0 0 2.5rem; padding: 0 0 0 1.5rem; border-left: 2px solid var(--ink); }
+.timeline li { position: relative; padding-bottom: 1.75rem; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem - 7px);
+  top: 0.45rem;
+  width: 12px; height: 12px;
+  background: var(--hi);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+.timeline .when { font-weight: 600; color: var(--blue); }
+.timeline h3 { margin: 0.1rem 0 0.25rem; }
+
+.skills-title { font-weight: 600; margin-bottom: 0.5rem; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; }
+.chips li { border: 2px solid var(--ink); padding: 0.1rem 0.8rem; background: var(--paper); font-weight: 600; }
+
+/* ---------- Projects ---------- */
+.project {
+  height: 100%;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.project .stack { color: var(--muted); font-size: 0.95rem; margin-top: auto; }
+.project-link { font-weight: 600; }
+
+/* ---------- Favourites ---------- */
+.fav { height: 100%; border-top: 6px solid var(--hi); background: var(--paper); padding: 1rem 1.25rem 1.5rem; }
+.fav h3 { margin-top: 0.5rem; }
+.fav p { margin-bottom: 0; }
+
+/* ---------- Contact ---------- */
+.contact-list { list-style: none; padding: 0; margin: 0; font-size: 1.25rem; }
+.contact-list li { padding: 0.4rem 0; border-bottom: 1px solid var(--grid); }
+.contact-list a { font-weight: 600; word-break: break-word; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--ink); color: var(--paper); padding: 1.5rem 0; font-size: 0.95rem; }
+.site-footer p { margin: 0; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 575.98px) {
+  body { font-size: 1.05rem; }
+  .project { box-shadow: 4px 4px 0 var(--ink); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
